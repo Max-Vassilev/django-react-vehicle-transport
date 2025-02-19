@@ -24,7 +24,7 @@ const Request = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    navigate('/');
+    navigate('/', { state: { message: "Your request was successfully sent. Expect to be contacted soon." } });
   };
 
   return (
