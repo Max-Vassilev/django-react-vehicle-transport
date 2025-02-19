@@ -25,11 +25,13 @@ function Home() {
     <div className="font-sans bg-gray-800 min-h-screen flex flex-col">
       <Header />
       {visible && (
-        <div className="bg-green-600 text-white text-center p-4 relative shadow-md rounded mx-4 mt-4">
-          <span>{message}</span>
+        <div className="bg-green-600 text-white p-4 relative shadow-md rounded mx-4 mt-4 flex items-center justify-between">
+          <div className="flex-1 text-center">
+            <span className="text-lg">{message}</span>
+          </div>
           <button 
             onClick={handleClose} 
-            className="absolute top-1 right-2 text-white hover:text-gray-200"
+            className="text-white text-2xl font-bold p-1 rounded focus:outline-none transition-transform duration-200 hover:scale-110 hover:bg-green-500"
           >
             X
           </button>
