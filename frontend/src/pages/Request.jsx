@@ -21,10 +21,25 @@ const Request = () => {
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    navigate('/', { state: { message: "Your request was successfully sent. Expect to be contacted soon." } });
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}api/create-vehicle-request/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      navigate('/', { state: { message: "Your request was successfully sent. Expect to be contacted soon." } });
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (

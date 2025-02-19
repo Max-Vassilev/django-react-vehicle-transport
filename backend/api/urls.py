@@ -1,4 +1,10 @@
 from django.urls import path
-from . import views
+from .views import CreateVehicleTransportRequestView
 
-urlpatterns = []
+urlpatterns = [
+    path(
+        "create-vehicle-request/",
+        CreateVehicleTransportRequestView.as_view(),
+        name="create-vehicle-request",
+    ),
+]

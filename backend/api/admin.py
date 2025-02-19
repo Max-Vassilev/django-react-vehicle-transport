@@ -1,4 +1,4 @@
-# from django.contrib import admin
-# from .models import Note
+from django.contrib import admin
+from .models import VehicleTransportRequest
 
-# admin.site.register(Note)
+admin.site.register(VehicleTransportRequest)
