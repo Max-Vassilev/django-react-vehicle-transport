@@ -1,102 +1,68 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const Request = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     phone: "",
-    pickupCountry: "",
-    pickupCity: "",
-    deliveryCountry: "Bulgaria",
-    deliveryCity: "Sofia",
-    smallCarCount: 0,
-    bigCarCount: 0,
-    suvCount: 0,
-    busCount: 0
+    pickup_country: "",
+    pickup_city: "",
+    delivery_country: "",
+    delivery_city: "",
+    small_car_count: 0,
+    big_car_count: 0,
+    suv_count: 0,
+    bus_count: 0
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitted Data:", formData);
+    console.log(formData);
+    navigate('/');
   };
 
   return (
-    <div className="font-sans bg-gray-800 min-h-screen flex flex-col">
+    <div className="bg-gray-800 min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow py-12 flex flex-col items-center">
-        <h1 className="text-white text-3xl text-center">Request Vehicle Transport</h1>
-        <form onSubmit={handleSubmit} className="mt-8 bg-gray-900 p-6 rounded-lg shadow-lg w-full max-w-lg">
+        <h1 className="text-white text-3xl">Request Transport</h1>
+        <form onSubmit={handleSubmit} className="mt-8 bg-gray-900 p-6 rounded-lg w-full max-w-lg">
           {[
-            { label: "First name", name: "firstName", type: "text" },
-            { label: "Last name", name: "lastName", type: "text" },
-            { label: "Phone", name: "phone", type: "tel" },
-            { label: "Pickup country", name: "pickupCountry", type: "text" },
-            { label: "Pickup city", name: "pickupCity", type: "text" },
-          ].map(({ label, name, type }) => (
-            <div key={name} className="mb-4">
-              <label className="block text-white">{label}:</label>
-              <input
-                type={type}
-                name={name}
-                value={formData[name]}
-                onChange={handleChange}
-                className="w-full p-2 rounded bg-gray-700 text-white focus:outline-none"
-                required
-              />
-            </div>
-          ))}
-
-          <div className="mb-4">
-            <label className="block text-white">Delivery country:</label>
-            <input
-              type="text"
-              value="Bulgaria"
-              readOnly
-              className="w-full p-2 rounded bg-gray-700 text-gray-400"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-white">Delivery city:</label>
-            <input
-              type="text"
-              value="Sofia"
-              readOnly
-              className="w-full p-2 rounded bg-gray-700 text-gray-400"
-            />
-          </div>
-
-          {[
-            { label: "Small car count", name: "smallCarCount" },
-            { label: "Big car count", name: "bigCarCount" },
-            { label: "SUV count", name: "suvCount" },
-            { label: "Bus count", name: "busCount" },
+            { label: "First Name", name: "first_name" },
+            { label: "Last Name", name: "last_name" },
+            { label: "Phone", name: "phone" },
+            { label: "Pickup Country", name: "pickup_country" },
+            { label: "Pickup City", name: "pickup_city" },
+            { label: "Delivery Country", name: "delivery_country" },
+            { label: "Delivery City", name: "delivery_city" }
           ].map(({ label, name }) => (
             <div key={name} className="mb-4">
               <label className="block text-white">{label}:</label>
-              <input
-                type="number"
-                name={name}
-                value={formData[name]}
-                onChange={handleChange}
-                className="w-full p-2 rounded bg-gray-700 text-white focus:outline-none"
-                min="0"
-              />
+              <input name={name} placeholder={label} value={formData[name]} onChange={handleChange} className="w-full p-2 rounded bg-gray-700 text-white" required />
             </div>
           ))}
-
-          <button
-            type="submit"
-            className="w-full mt-4 p-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg"
+          {[
+            { label: "Small Car Count", name: "small_car_count" },
+            { label: "Big Car Count", name: "big_car_count" },
+            { label: "SUV Count", name: "suv_count" },
+            { label: "Bus Count", name: "bus_count" }
+          ].map(({ label, name }) => (
+            <div key={name} className="mb-4">
+              <label className="block text-white">{label}:</label>
+              <input type="number" name={name} value={formData[name]} onChange={handleChange} className="w-full p-2 rounded bg-gray-700 text-white" min="0" />
+            </div>
+          ))}
+          <button 
+            type="submit" 
+            className="w-full p-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
           >
-            Submit Request
+            Submit
           </button>
         </form>
       </main>
