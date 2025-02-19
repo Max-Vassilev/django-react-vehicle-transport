@@ -6,7 +6,7 @@ function Register() {
     return (
         <>
             < Header />
-            <Form route="/api/token/register" method="register" />
+            <Form route="/api/user/register/" method="register" />
             < Footer />
         </>
     )
