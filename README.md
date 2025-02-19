@@ -22,7 +22,7 @@
 
 
 ### Other pages:
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/43015517-4b06-477b-9055-ee988a194b10)
 
 ![image](https://github.com/user-attachments/assets/4b8f9532-eb99-49f2-b200-b5b86100bd1d)
 
