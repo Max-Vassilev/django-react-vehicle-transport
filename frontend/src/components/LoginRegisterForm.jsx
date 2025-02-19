@@ -54,6 +54,16 @@ function Form({ route, method }) {
                 <button className="form-button w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition duration-300" type="submit">
                     {name}
                 </button>
+                {method === "login" && (
+                    <div className="text-center mt-4 text-gray-400">
+                        Have no account? <a href="/register" className="text-blue-500 hover:underline">Register from here.</a>
+                    </div>
+                )}
+                {method === "register" && (
+                    <div className="text-center mt-4 text-gray-400">
+                        Already have an account? <a href="/login" className="text-blue-500 hover:underline">Login from here.</a>
+                    </div>
+                )}
             </form>
         </div>
     );

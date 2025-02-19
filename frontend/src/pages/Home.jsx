@@ -5,11 +5,13 @@ import Hero from "../components/Hero";
 import Gallery from "../components/Gallery";
 import CTA from "../components/CTA";
 import Footer from "../components/Footer";
+import useIsLoggedIn from "../isLoggedIn";
 
 function Home() {
   const location = useLocation();
   const [message, setMessage] = useState(location.state?.message);
   const [visible, setVisible] = useState(false);
+  const isLoggedIn = useIsLoggedIn();
 
   const handleClose = () => {
     setVisible(false);
@@ -44,6 +46,11 @@ function Home() {
         <Hero />
         <Gallery />
         <CTA />
+        {!isLoggedIn && (
+          <div className="text-gray-400 text-center mt-4">
+            Please log in to make a request for vehicle transportation.
+          </div>
+        )}
       </main>
       <Footer />
     </div>
