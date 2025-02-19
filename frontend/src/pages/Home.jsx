@@ -9,17 +9,20 @@ import Footer from "../components/Footer";
 function Home() {
   const location = useLocation();
   const [message, setMessage] = useState(location.state?.message);
-  const [visible, setVisible] = useState(!!message);
+  const [visible, setVisible] = useState(false);
 
   const handleClose = () => {
     setVisible(false);
+    localStorage.removeItem("requestMade");
   };
 
   useEffect(() => {
-    if (message) {
+    const requestMade = localStorage.getItem("requestMade");
+    if (requestMade) {
+      setMessage("Your request was successfully sent. Expect to be contacted soon.");
       setVisible(true);
     }
-  }, [message]);
+  }, []);
 
   return (
     <div className="font-sans bg-gray-800 min-h-screen flex flex-col">

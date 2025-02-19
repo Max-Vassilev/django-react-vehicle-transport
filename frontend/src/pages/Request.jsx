@@ -36,6 +36,7 @@ const Request = () => {
         throw new Error("Network response was not ok");
       }
 
+      localStorage.setItem("requestMade", "true");
       navigate('/', { state: { message: "Your request was successfully sent. Expect to be contacted soon." } });
     } catch (error) {
       console.error("Error:", error);
