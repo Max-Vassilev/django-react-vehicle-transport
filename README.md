@@ -1,7 +1,7 @@
 ### Home page:
 ![image](https://github.com/user-attachments/assets/37181c75-8314-4cb8-b79e-134d863927b2)
 
-### Main Functionality: Vehicle Transportation Request (works only for authenticated users):
+### Main Functionality: Vehicle Transportation Request (available only for authenticated users):
 ![image](https://github.com/user-attachments/assets/3a66fcaa-007e-4ac2-9824-b12ed26b8a35)
 
 ### Login:
@@ -16,3 +16,14 @@
 
 ### After submitting a request, the user is redirected to the home page, where a banner appears:
 ![image](https://github.com/user-attachments/assets/a2ca1185-4fe5-49cf-9170-39f1e8579f10)
+
+### All requests can be managed from the Django admin panel:
+![image](https://github.com/user-attachments/assets/bd7dd5f3-2a86-4991-baca-5f1a6956327c)
+
+
+### Other pages:
+![image](https://github.com/user-attachments/assets/d29ddd66-b719-44a0-9922-3f291e94d6ca)
+
+![image](https://github.com/user-attachments/assets/4b8f9532-eb99-49f2-b200-b5b86100bd1d)
+
+![image](https://github.com/user-attachments/assets/ea5ab18e-a899-429c-8716-a89cacd9fe62)
