@@ -6,11 +6,11 @@
 
 ### Login:
 ![image](https://github.com/user-attachments/assets/195a2ce1-b5ed-4cc0-903a-8406116e720f)
+![image](https://github.com/user-attachments/assets/6f747b3f-ca0e-41e7-aac3-ac754246a991)
 
 ### Register:
 ![image](https://github.com/user-attachments/assets/7682f0c6-e678-40db-a8ec-4f2212129f1c)
-
-![image](https://github.com/user-attachments/assets/60581db2-251a-4809-a100-3641553573fd)
+![image](https://github.com/user-attachments/assets/19ee4e18-1eb7-4794-a82c-14fd29a15a27)
 
 ### Vehicle Transportation Request:
 ![image](https://github.com/user-attachments/assets/5e49a037-9fc4-4c08-8507-f06698c8c378)
