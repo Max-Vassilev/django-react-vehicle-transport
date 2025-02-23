@@ -1,4 +1,4 @@
-name: Build and deploy Python app to Azure Web App - v-t
+name: Deploy Python app to Azure Web App - vehicles-backend
 
 on:
   push:
@@ -10,38 +10,34 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read # Required for actions/checkout
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python version
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
       - name: Create and start virtual environment
         run: |
-          python -m venv backend/venv
-          source backend/venv/bin/activate
-
-      - name: Install dependencies
-        run: |
-          cd backend
-          pip install -r requirements.txt
+          python -m venv venv
+          source venv/bin/activate
       
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-
+      - name: Install dependencies
+        run: pip install -r backend/requirements.txt
+        
       - name: Zip artifact for deployment
-        run: |
-          cd backend
-          zip -r ../release.zip ./*
+        run: zip release.zip ./backend -r
 
-      - name: Upload artifact for deployment jobs
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: python-app
-          path: release.zip
+          path: |
+            release.zip
+            !venv/
 
   deploy:
     runs-on: ubuntu-latest
@@ -50,28 +46,28 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write # Required for requesting the JWT
-      contents: read # Required for actions/checkout
+      id-token: write
+      contents: read
 
     steps:
-      - name: Download artifact from build job
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: python-app
 
-      - name: Unzip artifact for deployment
+      - name: Unzip artifact
         run: unzip release.zip
 
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D0EA541545BD4057B76959ED58F0109E }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_DE3A7D8948AE4C27925C378D50F2E8F4 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_426CD6A216BC44E49153018BBAEE2104 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_300C578F463943258B50BA4CEA5E826C }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E6DB8E8614964AD681B4EC13011A548E }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_8926C7129AE1459F8CBD60 }}
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'v-t'
+          app-name: 'vehicles-backend'
           slot-name: 'Production'
