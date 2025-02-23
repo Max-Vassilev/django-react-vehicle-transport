@@ -89,16 +89,16 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWS_CREDENTIALS = True
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'v-t-database',
-#         'USER': 'dfcneoxiqq',
-#         'PASSWORD': 'LW6WQlmgN0vec$UP',
-#         'HOST': 'v-t-server.postgres.database.azure.com',
-#         'PORT': '5432',
-#         'OPTIONS': {
-#             'sslmode': 'require',
-#         },
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'vehicles-backend-database',
+        'USER': 'tljxzbmtwj',
+        'PASSWORD': 'YJBTjPqTTogfGCx$',
+        'HOST': 'vehicles-backend-server.postgres.database.azure.com',
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
+    }
+}
