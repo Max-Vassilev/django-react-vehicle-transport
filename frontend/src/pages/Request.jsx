@@ -24,7 +24,7 @@ const Request = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://vehicles-backend.azurewebsites.net/api/create-vehicle-request/`, {
+      const response = await fetch(`https://vehicles-backend.azurewebsites.net/api/create-vehicle-request/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
