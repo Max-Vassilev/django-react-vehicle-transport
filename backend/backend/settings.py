@@ -4,7 +4,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-8%x*hxyl%1q6g#ff+^uesm!6mvu&5mgpm4*uw7%9twd54!^k3a"
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 DEBUG = True
 
@@ -91,7 +91,6 @@ CORS_ALLOWS_CREDENTIALS = True
 
 DATABASE_URL = os.getenv('AZURE_POSTGRESQL_CONNECTIONSTRING')
 
-# Parse the database connection string (key-value pairs)
 params = dict(p.split('=') for p in DATABASE_URL.split(' '))
 
 DATABASES = {
