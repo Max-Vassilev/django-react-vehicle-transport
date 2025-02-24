@@ -11,8 +11,8 @@
 ![image](https://github.com/user-attachments/assets/2935b356-482a-4555-8dff-b7247d98cc26)
 
 ### Vehicle Transportation Request:
-![image](https://github.com/user-attachments/assets/5e49a037-9fc4-4c08-8507-f06698c8c378)
-![image](https://github.com/user-attachments/assets/a0533ee5-d0ed-49cc-a073-5c8774389810)
+![image](https://github.com/user-attachments/assets/a263ae2c-c3f1-4ac6-b74c-696b68f941d2)
+![image](https://github.com/user-attachments/assets/2391351f-3b22-4a05-9a14-df9d35ebcb21)
 
 ### After submitting a request, the user is redirected to the home page, where a banner appears:
 ![image](https://github.com/user-attachments/assets/a2ca1185-4fe5-49cf-9170-39f1e8579f10)
