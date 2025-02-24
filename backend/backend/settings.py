@@ -89,20 +89,16 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWS_CREDENTIALS = True
 
-DATABASE_URL = os.getenv('AZURE_POSTGRESQL_CONNECTIONSTRING')
-
-params = dict(p.split('=') for p in DATABASE_URL.split(' '))
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': params.get('dbname'),
-        'USER': params.get('user'),
-        'PASSWORD': params.get('password'),
-        'HOST': params.get('host'),
-        'PORT': params.get('port'),
+        'NAME': 'vehicles-backend-database',
+        'USER': 'tljxzbmtwj',
+        'PASSWORD': 'YJBTjPqTTogfGCx$',
+        'HOST': 'vehicles-backend-server.postgres.database.azure.com',
+        'PORT': '5432',
         'OPTIONS': {
-            'sslmode': params.get('sslmode'),
+            'sslmode': 'require',
         },
     }
 }
