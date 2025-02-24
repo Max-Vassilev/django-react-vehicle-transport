@@ -1,3 +1,5 @@
+https://zealous-sea-0fa877203.4.azurestaticapps.net/
+
 ### Home page:
 ![image](https://github.com/user-attachments/assets/c80e821f-bde8-4e88-ac55-58374b13a259)
 
