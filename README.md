@@ -1,14 +1,14 @@
 ### Home page:
-![image](https://github.com/user-attachments/assets/37181c75-8314-4cb8-b79e-134d863927b2)
+![image](https://github.com/user-attachments/assets/c80e821f-bde8-4e88-ac55-58374b13a259)
 
 ### Main Functionality: Vehicle Transportation Request (available only for authenticated users):
-![image](https://github.com/user-attachments/assets/3a66fcaa-007e-4ac2-9824-b12ed26b8a35)
+![image](https://github.com/user-attachments/assets/1020f060-e2ab-44d6-bafd-1c0e8bf1d874)
 
 ### Login:
-![image](https://github.com/user-attachments/assets/6f747b3f-ca0e-41e7-aac3-ac754246a991)
+![image](https://github.com/user-attachments/assets/0328ad81-2626-49f8-81f6-862d1ef4495a)
 
 ### Register:
-![image](https://github.com/user-attachments/assets/19ee4e18-1eb7-4794-a82c-14fd29a15a27)
+![image](https://github.com/user-attachments/assets/2935b356-482a-4555-8dff-b7247d98cc26)
 
 ### Vehicle Transportation Request:
 ![image](https://github.com/user-attachments/assets/5e49a037-9fc4-4c08-8507-f06698c8c378)
