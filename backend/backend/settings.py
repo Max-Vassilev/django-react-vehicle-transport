@@ -1,7 +1,6 @@
 from pathlib import Path
 from datetime import timedelta
 import os
-from urllib.parse import urlparse
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -90,22 +89,20 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWS_CREDENTIALS = True
 
-# Database configuration using environment variable
 DATABASE_URL = os.getenv('AZURE_POSTGRESQL_CONNECTIONSTRING')
 
-# Parse the database connection string
-url = urlparse(DATABASE_URL)
+params = dict(p.split('=') for p in DATABASE_URL.split(' '))
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': url.path[1:],  # Skip the leading '/'
-        'USER': url.username,
-        'PASSWORD': url.password,
-        'HOST': url.hostname,
-        'PORT': url.port,
+        'NAME': params.get('dbname'),
+        'USER': params.get('user'),
+        'PASSWORD': params.get('password'),
+        'HOST': params.get('host'),
+        'PORT': params.get('port'),
         'OPTIONS': {
-            'sslmode': 'require',
+            'sslmode': params.get('sslmode'),
         },
     }
 }
