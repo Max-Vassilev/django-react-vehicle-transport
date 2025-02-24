@@ -17,7 +17,7 @@ function CTA() {
             <a
                 href="/request"
                 onClick={handleRequestClick}
-                className="w-full p-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer text-xl shadow-xl">
+                className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-5 px-10 text-xl rounded-full shadow-xl transform hover:scale-110 hover:shadow-2xl hover:bg-indigo-600 transition duration-300 ease-in-out">
                 Make a Request
             </a>
         </section>
