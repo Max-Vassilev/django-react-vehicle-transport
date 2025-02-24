@@ -1,7 +1,6 @@
 import { useState } from "react";
 import useIsLoggedIn from "../isLoggedIn";
 
-
 function Header() {
     const isLoggedIn = useIsLoggedIn();
     const [menuOpen, setMenuOpen] = useState(false);
