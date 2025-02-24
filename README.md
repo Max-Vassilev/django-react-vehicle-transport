@@ -15,11 +15,10 @@
 ![image](https://github.com/user-attachments/assets/2391351f-3b22-4a05-9a14-df9d35ebcb21)
 
 ### After submitting a request, the user is redirected to the home page, where a banner appears:
-![image](https://github.com/user-attachments/assets/a2ca1185-4fe5-49cf-9170-39f1e8579f10)
+![image](https://github.com/user-attachments/assets/f775574d-e0e7-475b-8e7b-28088f5b5199)
 
 ### All requests can be managed from the Django admin panel:
 ![image](https://github.com/user-attachments/assets/bd7dd5f3-2a86-4991-baca-5f1a6956327c)
-
 
 ### Other pages:
 ![image](https://github.com/user-attachments/assets/43015517-4b06-477b-9055-ee988a194b10)
