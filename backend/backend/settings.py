@@ -8,7 +8,11 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["vehicles-backend.azurewebsites.net"]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://vehicles-backend.azurewebsites.net',
+]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -87,7 +91,7 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWS_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = True
 
 DATABASE_URL = os.getenv('AZURE_POSTGRESQL_CONNECTIONSTRING')
 
