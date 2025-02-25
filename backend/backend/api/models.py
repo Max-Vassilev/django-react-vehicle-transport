@@ -8,9 +8,9 @@ class VehicleTransportRequest(models.Model):
         ("approved", "Approved"),
     ]
 
-    # user = models.ForeignKey(
-    #     User, on_delete=models.CASCADE, related_name="transport_requests"
-    # )
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="transport_requests"
+    )
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     phone = models.CharField(max_length=25)
