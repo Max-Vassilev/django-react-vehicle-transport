@@ -20,7 +20,7 @@ class CreateVehicleTransportRequestView(generics.CreateAPIView):
 
 class UserVehicleTransportRequestsView(generics.ListAPIView):
     serializer_class = VehicleTransportRequestSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def get_queryset(self):
         return VehicleTransportRequest.objects.filter(user=self.request.user)
