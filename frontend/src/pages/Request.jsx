@@ -23,6 +23,8 @@ const Request = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form data submitted:", formData);
+
     try {
       const response = await fetch(`https://vehicles-backend.azurewebsites.net/api/create-vehicle-request/`, {
         method: "POST",
