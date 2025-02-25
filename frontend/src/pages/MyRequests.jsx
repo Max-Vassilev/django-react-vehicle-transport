@@ -4,7 +4,10 @@ import Footer from '../components/Footer'
 
 const MyRequests = () => {
   return (
-    < Header />
+    <>
+        < Header />
+        <Footer />
+    </>
     
   )
 }
