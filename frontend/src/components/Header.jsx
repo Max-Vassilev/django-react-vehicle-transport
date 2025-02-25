@@ -49,7 +49,7 @@ function Header() {
                         {isLoggedIn && (
                             <li>
                                 <a href="/my-requests" className="flex items-center space-x-2 px-4 py-2 rounded hover:bg-blue-600 transition">
-                                    <i className="fa-solid fa-list text-lg"></i>
+                                    <i class="fa-solid fa-folder-open text-lg"></i>
                                     <span>All Requests</span>
                                 </a>
                             </li>
