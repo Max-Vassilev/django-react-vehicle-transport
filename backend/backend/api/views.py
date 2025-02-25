@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from rest_framework import generics
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import AllowAny
 from .serializers import UserSerializer, VehicleTransportRequestSerializer
 from .models import VehicleTransportRequest
 
@@ -18,9 +18,7 @@ class CreateVehicleTransportRequestView(generics.CreateAPIView):
     permission_classes = [AllowAny]
 
 
-class UserVehicleTransportRequestsView(generics.ListAPIView):
+class AllVehicleTransportRequestsView(generics.ListAPIView):
+    queryset = VehicleTransportRequest.objects.all()
     serializer_class = VehicleTransportRequestSerializer
-    permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        return VehicleTransportRequest.objects.filter(user=self.request.user)
+    permission_classes = [AllowAny]
