@@ -1,90 +1,68 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
-const Request = () => {
+const MyRequests = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    phone: "",
-    pickup_country: "",
-    pickup_city: "",
-    delivery_country: "",
-    delivery_city: "",
-    small_car_count: 0,
-    big_car_count: 0,
-    suv_count: 0,
-    bus_count: 0
-  });
+  const [requests, setRequests] = useState([]);
+  
+  useEffect(() => {
+    const fetchRequests = async () => {
+      try {
+        const response = await fetch('https://vehicles-backend.azurewebsites.net/api/user-vehicle-requests/', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json',
+          },
+        });
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch(`https://vehicles-backend.azurewebsites.net/api/create-vehicle-request/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
+        const data = await response.json();
+        if (Array.isArray(data)) {
+          setRequests(data);
+        } else {
+          console.error('Expected an array but received:', data);
+        }
+      } catch (error) {
+        console.error('Error fetching requests:', error);
+        if (error.message.includes('401')) {
+          navigate('/login');
+        }
       }
+    };
 
-      localStorage.setItem("requestMade", "true");
-      navigate('/', { state: { message: "Your request was successfully sent. Expect to be contacted soon." } });
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
+    fetchRequests();
+  }, [navigate]);
 
   return (
-    <div className="bg-gray-800 min-h-screen flex flex-col">
+    <div className="font-sans bg-gray-800 min-h-screen flex flex-col">
       <Header />
-      <main className="flex-grow py-12 flex flex-col items-center">
-        <h1 className="text-white text-3xl">Request Transport</h1>
-        <form onSubmit={handleSubmit} className="mt-8 bg-gray-900 p-6 rounded-lg w-full max-w-lg">
-          {[
-            { label: "First Name", name: "first_name" },
-            { label: "Last Name", name: "last_name" },
-            { label: "Phone", name: "phone" },
-            { label: "Pickup Country", name: "pickup_country" },
-            { label: "Pickup City", name: "pickup_city" },
-            { label: "Delivery Country", name: "delivery_country" },
-            { label: "Delivery City", name: "delivery_city" }
-          ].map(({ label, name }) => (
-            <div key={name} className="mb-4">
-              <label className="block text-white">{label}:</label>
-              <input name={name} placeholder={label} value={formData[name]} onChange={handleChange} className="w-full p-2 rounded bg-gray-700 text-white" required />
+      <main className="flex-grow py-12 max-w-4xl mx-auto">
+        <h2 className="text-3xl font-bold text-white text-center mb-6">My Vehicle Transport Requests</h2>
+        <div className="space-y-6 p-6 bg-white shadow-lg rounded-lg">
+          {requests.map((request) => (
+            <div key={request.id} className="p-6 border rounded-lg shadow-md bg-gray-100">
+              <p className="text-gray-700 font-semibold">Pickup: {request.pickup_city}, {request.pickup_country}</p>
+              <p className="text-gray-700 font-semibold">Delivery: {request.delivery_city}, {request.delivery_country}</p>
+              <p className="text-gray-700">Small Cars: {request.small_car_count}</p>
+              <p className="text-gray-700">Big Cars: {request.big_car_count}</p>
+              <p className="text-gray-700">SUVs: {request.suv_count}</p>
+              <p className="text-gray-700">Buses: {request.bus_count}</p>
+              <p className="text-gray-900 font-bold">Total Cost: ${request.final_sum}</p>
+              <p className={`text-lg font-bold mt-2 ${request.status === 'Pending Approval' ? 'text-yellow-500' : 'text-green-500'}`}>
+                Status: {request.status}
+              </p>
             </div>
           ))}
-          {[
-            { label: "Small Car Count", name: "small_car_count" },
-            { label: "Big Car Count", name: "big_car_count" },
-            { label: "SUV Count", name: "suv_count" },
-            { label: "Bus Count", name: "bus_count" }
-          ].map(({ label, name }) => (
-            <div key={name} className="mb-4">
-              <label className="block text-white">{label}:</label>
-              <input type="number" name={name} value={formData[name]} onChange={handleChange} className="w-full p-2 rounded bg-gray-700 text-white" min="0" />
-            </div>
-          ))}
-          <button 
-            type="submit" 
-            className="w-full py-3 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-lg shadow-xl transform hover:scale-110 hover:shadow-2xl transition duration-300 ease-in-out"
-          >
-            Submit
-          </button>
-        </form>
+        </div>
       </main>
       <Footer />
     </div>
   );
 };
 
-export default Request;
+export default MyRequests;
