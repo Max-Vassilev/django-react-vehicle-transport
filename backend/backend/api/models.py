@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class VehicleTransportRequest(models.Model):
@@ -7,6 +8,9 @@ class VehicleTransportRequest(models.Model):
         ("approved", "Approved"),
     ]
 
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="transport_requests"
+    )
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     phone = models.CharField(max_length=25)
@@ -27,4 +31,4 @@ class VehicleTransportRequest(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Request by {self.first_name} {self.last_name}"
+        return f"Request by {self.user.username} - {self.first_name} {self.last_name}"
