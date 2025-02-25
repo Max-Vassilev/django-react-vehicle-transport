@@ -8,6 +8,7 @@ import Pricing from "./pages/Pricing";
 import Contacts from "./pages/Contacts";
 import About from "./pages/About";
 import Request from "./pages/Request";
+import MyRequests from "./pages/MyRequests";
 
 function Logout() {
   localStorage.clear();
@@ -31,6 +32,7 @@ function App() {
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/about" element={<About />} />
         <Route path="/request" element={<Request />} />
+        <Route path="/my-requests" element={<MyRequests />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
