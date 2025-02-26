@@ -6,8 +6,6 @@ import Footer from "../components/Footer";
 const Request = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
     phone: "",
     pickup_country: "",
     pickup_city: "",
