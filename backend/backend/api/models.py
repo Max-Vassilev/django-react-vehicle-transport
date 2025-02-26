@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class VehicleTransportRequest(models.Model):
@@ -27,4 +26,4 @@ class VehicleTransportRequest(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Request by {self.user.username} - {self.first_name} {self.last_name}"
+        return f"Request by {self.first_name} {self.last_name}"
