@@ -1,13 +1,14 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 
 class VehicleTransportRequest(models.Model):
     STATUS_CHOICES = [
         ("pending_approval", "Pending Approval"),
         ("approved", "Approved"),
     ]
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="transport_requests")
     phone = models.CharField(max_length=25)
     pickup_country = models.CharField(max_length=100)
     pickup_city = models.CharField(max_length=100)
@@ -26,4 +27,4 @@ class VehicleTransportRequest(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Request by {self.first_name} {self.last_name}"
+        return f"Request by {self.user.get_full_name() or self.user.username}"
