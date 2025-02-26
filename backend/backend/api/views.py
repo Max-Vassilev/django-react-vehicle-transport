@@ -11,12 +11,10 @@ class CreateUserView(generics.CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
 
-
 class CreateVehicleTransportRequestView(generics.CreateAPIView):
     queryset = VehicleTransportRequest.objects.all()
     serializer_class = VehicleTransportRequestSerializer
     permission_classes = [AllowAny]
-
 
 class AllVehicleTransportRequestsView(generics.ListAPIView):
     queryset = VehicleTransportRequest.objects.all()
