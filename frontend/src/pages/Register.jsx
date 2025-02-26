@@ -36,7 +36,7 @@ function Register() {
 
             navigate("/login");
         } catch (error) {
-            alert(error);
+            alert("Registration failed");
         } finally {
             setLoading(false);
         }
@@ -105,10 +105,6 @@ function Register() {
                     >
                         Register
                     </button>
-
-                    <div className="text-center mt-4 text-gray-400">
-                        Already have an account? <a href="/login" className="text-blue-500 hover:underline">Login from here.</a>
-                    </div>
                 </form>
             </div>
             <Footer />

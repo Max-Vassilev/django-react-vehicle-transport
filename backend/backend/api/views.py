@@ -17,6 +17,7 @@ class CreateVehicleTransportRequestView(generics.CreateAPIView):
     serializer_class = VehicleTransportRequestSerializer
     permission_classes = [AllowAny]
 
+
 class AllVehicleTransportRequestsView(generics.ListAPIView):
     queryset = VehicleTransportRequest.objects.all()
     serializer_class = VehicleTransportRequestSerializer

@@ -22,7 +22,7 @@ function Login() {
             localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
             navigate("/");
         } catch (error) {
-            alert(error);
+            alert("Invalid credentials");
         } finally {
             setLoading(false);
         }
