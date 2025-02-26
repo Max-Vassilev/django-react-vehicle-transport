@@ -8,7 +8,7 @@ class VehicleTransportRequest(models.Model):
         ("pending_approval", "Pending Approval"),
         ("approved", "Approved"),
     ]
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="transport_requests")
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     phone = models.CharField(max_length=25)
     pickup_country = models.CharField(max_length=100)
     pickup_city = models.CharField(max_length=100)
