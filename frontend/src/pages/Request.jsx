@@ -52,8 +52,6 @@ const Request = () => {
         <h1 className="text-white text-3xl">Request Transport</h1>
         <form onSubmit={handleSubmit} className="mt-8 bg-gray-900 p-6 rounded-lg w-full max-w-lg">
           {[
-            { label: "First Name", name: "first_name" },
-            { label: "Last Name", name: "last_name" },
             { label: "Phone", name: "phone" },
             { label: "Pickup Country", name: "pickup_country" },
             { label: "Pickup City", name: "pickup_city" },
