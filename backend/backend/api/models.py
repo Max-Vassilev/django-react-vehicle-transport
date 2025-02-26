@@ -27,4 +27,4 @@ class VehicleTransportRequest(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Request by {self.user.get_full_name() or self.user.username}"
+        return f"Request by ..."
