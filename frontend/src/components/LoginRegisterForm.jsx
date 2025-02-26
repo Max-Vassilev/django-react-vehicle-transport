@@ -56,7 +56,7 @@ function Form({ route, method }) {
                 {loading && <div className="my-6 flex justify-center"><LoadingIndicator /></div>}
 
                 <button 
-                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-2 rounded hover:scale-105 transition duration-300 ease-in-out" 
+                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-2 rounded hover:scale-105 transition duration-300 ease-in-out cursor-pointer" 
                     type="submit"
                 >
                     {name}

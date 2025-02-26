@@ -78,7 +78,7 @@ const Request = () => {
           ))}
           <button 
             type="submit" 
-            className="w-full py-3 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-lg shadow-xl transform hover:scale-110 hover:shadow-2xl transition duration-300 ease-in-out"
+            className="w-full py-3 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-lg shadow-xl transform hover:scale-110 hover:shadow-2xl transition duration-300 ease-in-out cursor-pointer"
           >
             Submit
           </button>
