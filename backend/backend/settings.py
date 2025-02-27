@@ -4,7 +4,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+SECRET_KEY = "some-secret-key"
 
 DEBUG = True
 
@@ -99,20 +99,20 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
-DATABASE_URL = os.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING")
+# DATABASE_URL = os.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING")
 
-params = dict(p.split("=") for p in DATABASE_URL.split(" "))
+# params = dict(p.split("=") for p in DATABASE_URL.split(" "))
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": params.get("dbname"),
-        "USER": params.get("user"),
-        "PASSWORD": params.get("password"),
-        "HOST": params.get("host"),
-        "PORT": params.get("port"),
-        "OPTIONS": {
-            "sslmode": params.get("sslmode"),
-        },
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": params.get("dbname"),
+#         "USER": params.get("user"),
+#         "PASSWORD": params.get("password"),
+#         "HOST": params.get("host"),
+#         "PORT": params.get("port"),
+#         "OPTIONS": {
+#             "sslmode": params.get("sslmode"),
+#         },
+#     }
+# }
