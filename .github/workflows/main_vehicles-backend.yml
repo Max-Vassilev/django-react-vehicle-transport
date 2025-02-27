@@ -1,5 +1,3 @@
-main_vehicle-backend.yml
-
 name: Build and deploy Python app to Azure Web App - vehicles-backend
 
 on:
