@@ -1,14 +1,15 @@
+from decouple import config
 from pathlib import Path
 from datetime import timedelta
 import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+SECRET_KEY = config('SECRET_KEY', default='django-insecure-c0o4to^p56b^=5l#$w#^fc79%#s6f@vmwn=w(r(1n)j25mx1rl')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["vehicles-backend.azurewebsites.net"]
+ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://vehicles-backend.azurewebsites.net",
@@ -101,18 +102,18 @@ CORS_ALLOW_CREDENTIALS = True
 
 DATABASE_URL = os.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING")
 
-params = dict(p.split("=") for p in DATABASE_URL.split(" "))
+# params = dict(p.split("=") for p in DATABASE_URL.split(" "))
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": params.get("dbname"),
-        "USER": params.get("user"),
-        "PASSWORD": params.get("password"),
-        "HOST": params.get("host"),
-        "PORT": params.get("port"),
-        "OPTIONS": {
-            "sslmode": params.get("sslmode"),
-        },
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": params.get("dbname"),
+#         "USER": params.get("user"),
+#         "PASSWORD": params.get("password"),
+#         "HOST": params.get("host"),
+#         "PORT": params.get("port"),
+#         "OPTIONS": {
+#             "sslmode": params.get("sslmode"),
+#         },
+#     }
+# }
